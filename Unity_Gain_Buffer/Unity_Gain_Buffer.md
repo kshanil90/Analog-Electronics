@@ -18,7 +18,7 @@ Let us take a real schematic and slow down time domain response.
 
 Consider the below circuit.
 
-<img src=images/20253003_093000_Real_Circuit.svg width=300>
+<p style="text-align:center;"><img src=images/20253003_093000_Real_Circuit.svg width=300>
 
 There are some pretty cool settling to learn from here. Let us start with the operation principle of this circuit.
 
@@ -29,7 +29,7 @@ There are some pretty cool settling to learn from here. Let us start with the op
 
 Let us say we connected the above op-amp in unity gain feedback as shown below and an input of 400mV is connected to $V_{INP}$.
 
-<img src=images/20253003_171700_Real_Circuit_Unity_Gain.svg width=300>
+<p style="text-align:center;"><img src=images/20253003_171700_Real_Circuit_Unity_Gain.svg width=300>
 
 Due to the finite gain of the op-amp, output did not settle to 400mV. Instead, it settled to 407mV. We will see the exact mechanism of this error later.
 
