@@ -20,3 +20,5 @@ Consider the below circuit.
 
 ![alt text](images/20253003_093000_Real_Circuit.svg)
 
+There are some pretty cool settling to learn from here. Let us start with the operation principle of this circuit.
+
