@@ -27,16 +27,40 @@ There are some pretty cool settling to learn from here. Let us start with the op
     * Currents are equal when $V_{INP}$ = $V_{INN}$.
     * MP4 copies the current from MP3. At $V_{OUTP}$, higher current is pumped in by MP4 than taken out by MN2. The difference is sent to the load. This causes $V_{OUTP}$ node to rise.
 
-Let us say we connected the above op-amp in unity gain feedback as shown below and an input of 400mV is connected to $V_{INP}$.
+Let us say we connected the above op-amp in unity gain feedback as shown below and an input of 1.8V is connected to $V_{INP}$. See a spice simulation result below.
 
-<p style="text-align:center;"><img src=images/20253003_171700_Real_Circuit_Unity_Gain.svg width=300>
+<img src=images/20253003_220600_Simulation_Unity_Gain.png width=500>
 
-Due to the finite gain of the op-amp, output did not settle to 400mV. Instead, it settled to 407mV. We will see the exact mechanism of this error later.
+Due to the finite gain of the op-amp, output did not settle to 1.8V. Instead, it settled to 1.804V. We will see the exact mechanism of this error later. Let us make some note of the behaviour of this error at this moment.
 
-Now, let us increase the input abruptly to 1.4V and look at:
+* Error = 1.804/1.8 = 0.22%.
+* Increase the input to 2.8V. Error = 2.795/2.8 = -0.17%
+* Set the input to 2.3V. Error = 2.3/2.3 $\approx$ 0%. What is special about 2.3V? This is the PMOS diode voltage. We will talk about all of this later.
+
+Now, let us increase the input abruptly to 2.8V from 1.8V and look at:
 * Input voltage
 * Output voltage
 * Internal gate voltage (PMOS gate) = PGATE
 
-Initially, nothing will happen. The op-amp will be too sluggish to respond much. Almost all of the bias current will be in the left branch and this will be copied to the right side.
+See a zoomed out view below.
+
+![alt text](images/20253003_223300_Simulation_Unity_Gain.png)
+
+In the zoomed out view, initially output is slightly higher than input and finally output is slightly lower than input. The values are same as the DC values.
+
+See a zoomed in view below.
+
+![alt text](images/20253003_223700_Simulation_Unity_Gain.png)
+
+Initially, nothing will happen. The op-amp will be too sluggish to respond much. Almost all of the bias current will be in the left branch and this will be copied to the right side. For about 120mV input voltage movement, output voltage moves by 62mV. See this below.
+
+![alt text](images/20253003_224400_Voltage_Movement.png)
+
+Output will steadily increase. Eventually it will overshoot the input level at which point MN2 start taking more current. This will then settle back.
+
+Notice how PGATE settles below.
+
+![alt text](images/20253003_225000_PGATE.png)
+
+PGATE never settles to the initial value. We will discuss this later.
 
