@@ -64,3 +64,17 @@ Notice how PGATE settles below.
 
 PGATE never settles to the initial value. We will discuss this later.
 
+# Common Mode Input in Unity Gain Feedback
+
+See the circuit below.
+
+<img src=images/20253103_145200_Real_Circuit_PGATE.svg width=300>
+
+* Say $V_{OUT} > PGATE$. $|V_{DS,MP3}| < |V_{DS,MP4}|$. This means $I_{D,Left} < I_{D,Right}$.
+
+
+
+<img src=images/20253103_144800_2p8V_input.png width=500>
+
+$V_{INP} = 2.8V$ and is greater than PGATE.
+
