@@ -70,11 +70,28 @@ See the circuit below.
 
 <img src=images/20253103_145200_Real_Circuit_PGATE.svg width=300>
 
-* Say $V_{OUT} > PGATE$. $|V_{DS,MP3}| < |V_{DS,MP4}|$. This means $I_{D,Left} < I_{D,Right}$.
+* Say $V_{OUT} > PGATE$. $|V_{DS,MP3}| > |V_{DS,MP4}|$. This means $I_{D,Left} > I_{D,Right}$.
 
+* However, this also means $|V_{DS,MN1}| < |V_{DS,MN2}|$. Which suggests $I_{D,Left} < I_{D,Right}$.
 
+* Both of these cannot be true at the same time. The only possible solution is that the circuit tries to make $V_{out}$ equal to $PGATE$.
+
+How to find the value of $PGATE$?
+
+Let us start by making the circuit a "balanced" one. In a balanced circuit, the current will equally split between the branches. Say this equal current is $I_{D,CM}$. $PGATE$ is found by solving the below equation.
+
+$I_{D,CM} = \frac{1}{2} C_{ox} \frac{W}{L} (|V_{GS0}|-|V_{TH}|)^2 \cdot (1+\lambda|V_{GS0}|)$
+
+* If we connect the circuit in unit gain feedback with $V_{GS0}$ as input, it will now be a balanced circuit.
+
+* $V_{INP} = 2.8V$ and is greater than PGATE. To a rough extend, we can say that the circuit will now have reduce the error using the factor $\frac{1}{A_0 \beta + 1}$.
 
 <img src=images/20253103_144800_2p8V_input.png width=500>
 
-$V_{INP} = 2.8V$ and is greater than PGATE.
+The output cannot reach the full input level of 2.8V. It reaches a slightly lower level.
+
+* Similarly, if we gave an input < PGATE, output will reach a value slightly greater than input level.
+
+This analysis is not possible in two stage amplifiers (CS stage following differential pair). In this case, the output will sit at supply or ground depending on the process. From there, the error will reduce as a function of $\frac{1}{A_0 \beta + 1}$.
+
 
