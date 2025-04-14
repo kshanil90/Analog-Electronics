@@ -143,4 +143,35 @@ $$
 
 The offset voltage appear as is at the output.
 
-Let us now consider a mismatch at the - terminal.
+Let us now consider a mismatch at the -ve terminal.
+
+![alt text](images/20250414_172900_Negative_Terminal_Offset.svg)
+
+Negative feedback ensures that $V_X = V_{IN} = V_{OUT} - V_{OFF}$.
+
+Thus, $V_{OUT} = V_{IN} + V_{OFF}$. Here, the sign is different compared to previous case because offset is at the negative terminal.
+
+Same method can be applied with a feedback factor also. Say feedback factor is $\beta$ . Let us take the - terminal. 
+
+$$
+V_{OUT} = (V_{IN} - V_X)\cdot A \\
+\newline
+V_X = V_{OUT} \cdot \beta - V_{OFF} \\
+\newline
+V_{OUT} = (V_{IN} - V_{OUT}\cdot \beta - V_{OFF})\cdot A \\
+\newline
+V_{OUT} \cdot (1+A\beta) = (V_{IN} - V_{OFF})\cdot A \\
+\newline
+V_{OUT} = V_{IN}\cdot \frac{A}{1+A\beta} - V_{OFF}\cdot \frac{A}{1+A\beta}
+$$
+
+$$
+V_{OUT} \approx \frac{V_{IN}}{\beta} - \frac{V_{OFF}}{\beta}
+$$
+
+Just to be comfortable, see this offset at transistor level below.
+
+![alt text](images/20250414_185200_Transistor_Lev_Offset.svg)
+
+# Auto Zero
+
