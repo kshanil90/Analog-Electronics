@@ -120,3 +120,27 @@ The question I am trying to answer here is:
 
 Mismatch is also similar to how the input referred noise behaves (except the one difference that noise also needs a current source representation to completely capture when there is finite loading from the source). Also, is there a difference if we refer the mismatch to + terminal v/s - terminal.
 
+![alt text](images/20250414_072200_Opamp_Feedback.svg)
+
+In the above circuit, there is no mismatch.
+
+$$
+V_{OUT} = V_{IN}
+$$
+
+There will be a settling errror given by $\frac{V_{IN} - V_{OUT0}}{A+1}$ where $V_{OUT0}$ is the default $V_{OUT}$ before feedback ($PGATE = V_{GS0}$ in the previous case).
+
+Let us now consider a mismatch at the + terminal.
+
+![alt text](images/20250414_073000_Opamp_Feedback.svg)
+
+Negative feedback ensures that $V_X = V_{OUT}$.
+
+$$
+V_X = V_{IN} - V_{OFF}\\
+\therefore\ V_{OUT} = V_{IN} - V_{OFF}
+$$
+
+The offset voltage appear as is at the output.
+
+Let us now consider a mismatch at the - terminal.
