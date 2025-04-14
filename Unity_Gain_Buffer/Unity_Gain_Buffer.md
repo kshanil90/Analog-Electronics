@@ -80,7 +80,9 @@ How to find the value of $PGATE$?
 
 Let us start by making the circuit a "balanced" one. In a balanced circuit, the current will equally split between the branches. Say this equal current is $I_{D,CM}$. $PGATE$ is found by solving the below equation.
 
-$I_{D,CM} = \frac{1}{2} C_{ox} \frac{W}{L} (|V_{GS0}|-|V_{TH}|)^2 \cdot (1+\lambda|V_{GS0}|)$
+$$
+I_{D,CM} = \frac{1}{2} C_{ox} \frac{W}{L} (|V_{GS0}|-|V_{TH}|)^2 \cdot (1+\lambda|V_{GS0}|)
+$$
 
 * If we connect the circuit in unit gain feedback with $V_{GS0}$ as input, it will now be a balanced circuit.
 
@@ -94,4 +96,27 @@ The output cannot reach the full input level of 2.8V. It reaches a slightly lowe
 
 This analysis is not possible in two stage amplifiers (CS stage following differential pair). In this case, the output will sit at supply or ground depending on the process. From there, the error will reduce as a function of $\frac{1}{A_0 \beta + 1}$.
 
+However, now the circuit is not a balanced one. $PGATE$ will not be equal to $V_{GS0}$. The current will be nearly balanced in both arms.
+
+The new equation is:
+
+$$
+I_{D,CM} = \frac{1}{2}\mu C_{ox} \frac{W}{L} \bigr(|V_{GS,new}|-|V_{TH}|)^2\cdot \bigr(1+\lambda|V_{DS,new}|)
+$$
+
+Between the two equations, we can solve for $|V_{GS,new}|$.
+
+$$
+\bigr(|V_{GS,new}| - |V_{TH}|)^2 = \frac{(|V_{GS0}|-|V_{TH}|)^2 \cdot (1+\lambda|V_{GS0}|)}{\bigr(1+\lambda|V_{DS,new}|)}
+$$
+
+Note that $V_{DS,new}$ is not an unknown. It can be solved using the fact that error is reduced by $\frac{1}{A_0 \beta + 1}$. For a first order, we can ignore this error as well and say that $PGATE$ is a function of the input common mode.
+
+# Mismatch
+
+The question I am trying to answer here is:
+
+**How does the op-amp mismatch appear at the output after connecting feedback?**
+
+Mismatch is also similar to how the input referred noise behaves (except the one difference that noise also needs a current source representation to completely capture when there is finite loading from the source). Also, is there a difference if we refer the mismatch to + terminal v/s - terminal.
 
