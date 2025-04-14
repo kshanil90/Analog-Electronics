@@ -175,3 +175,25 @@ Just to be comfortable, see this offset at transistor level below.
 
 # Auto Zero
 
+Consider the following amplifier.
+
+![alt text](images/20250414_172900_AutoZero_Phase.svg)
+
+Above is the auto zero phase. It is unity gain feedback. $V_{CM} = V_Y $. Note that, in this phase, $V_{Y1} = V_{OUT} $. This gives $V_Y = V_{OUT} - V_{OFF} $.
+
+Thus, the voltage across $C_{IN} $ is given by $V_{OUT} - V_{IN0} = V_{CM} + V_{OFF} - V_{IN0} $. The polarity of this voltage is + at $V_{Y1} $ and - at $V_{IN0} $.
+
+Now, let us remove auto zero and give a voltage transition at $V_{IN} $. See this below.
+
+![alt text](images/20250414_193600_After_AutoZero_Phase.svg)
+
+Now, the voltage at $V_Y$ is given by:
+
+$$
+V_{IN1} + V_{C_{IN}} - V_{OFF} = V_{IN1} + V_{CM} + V_{OFF} - V_{IN0} - V_{OFF} = V_{IN1} - V_{IN0} + V_{CM}
+$$
+
+See how the offset is removed. The cap stored the offset in the opposite direction. The change in $V_{IN}$ is driven on top of $V_{CM}$. 
+
+Note that this offset cancellation is dependent on the finte op-amp gain.
+
